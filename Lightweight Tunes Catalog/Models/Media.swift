@@ -15,6 +15,7 @@ public struct Media {
   var artwork: String? // URL of the artwork
   var genre: String? // Genre of entity
   var url: String? // trackViewUrl
+  var kind: String?
 }
 
 extension Media: Codable {
@@ -22,9 +23,10 @@ extension Media: Codable {
   enum CodingKeys: String, CodingKey {
     case id = "trackId"
     case name = "trackName"
-    case artwork = "artworkUrl60"
+    case artwork = "artworkUrl30"
     case genre = "primaryGenreName"
     case url = "trackViewUrl"
+    case kind = "kind"
   }
   
   public init(from decoder: Decoder) throws {
@@ -32,9 +34,10 @@ extension Media: Codable {
     
     id = try values.decodeIfPresent(Int.self, forKey: .id)
     name = try values.decodeIfPresent(String.self, forKey: .name)
-    artwork = try values.decodeIfPresent(String.self, forKey: .artwork) // I chose artworkUrl60
+    artwork = try values.decodeIfPresent(String.self, forKey: .artwork)
     genre = try values.decodeIfPresent(String.self, forKey: .genre)
     url = try values.decodeIfPresent(String.self, forKey: .url)
+    kind = try values.decodeIfPresent(String.self, forKey: .kind)
   }
   
   public func encode(to encoder: Encoder) throws {
@@ -45,6 +48,6 @@ extension Media: Codable {
     try container.encodeIfPresent(artwork, forKey: .artwork) // I chose artworkUrl60
     try container.encodeIfPresent(genre, forKey: .genre)
     try container.encodeIfPresent(url, forKey: .url)
-
+    try container.encodeIfPresent(kind, forKey: .kind)
   }
 }
