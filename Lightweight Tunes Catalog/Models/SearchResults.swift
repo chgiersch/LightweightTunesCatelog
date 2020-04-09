@@ -9,45 +9,8 @@
 import Foundation
 
 public struct SearchResults: Codable {
-//  let book: [Media]?
-//  let album: [Media]?
-//  let coachedAudio: [Media]?
-//  let featureMovie: [Media]?
-//  let interactiveBooklet: [Media]?
-//  let musicVideo: [Media]?
-//  let pdf: [Media]?
-//  let podcast: [Media]?
-//  let podcastEpisode: [Media]?
-//  let softwarePackage: [Media]?
-//  let song: [Media]?
-//  let tvEpisode: [Media]?
-//  let artist: [Media]?
   
   let results: [Media]?
-//  let resultCount: Int?
-  
-//  public init(from array: [KeyValuePairs<Any, Any>]) {
-//    book = [Media]()
-//    album = [Media]()
-//    coachedAudio = [Media]()
-//    featureMovie = [Media]()
-//    interactiveBooklet = [Media]()
-//    musicVideo = [Media]()
-//    pdf = [Media]()
-//    podcast = [Media]()
-//    podcastEpisode = [Media]()
-//    softwarePackage = [Media]()
-//    song = [Media]()
-//    tvEpisode = [Media]()
-//    artist = [Media]()
-//
-//    results = [Media]()
-//
-//    if let dictionary = Dictionary(grouping: results!, by: { $0.kind }) as? [String : [Media]?] {
-//      resultsDictionary = dictionary
-//      print(resultsDictionary)
-//    }
-//  }
   
   
   enum MediaType: String {

@@ -14,13 +14,13 @@ class MediaCell: UITableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var genreLabel: UILabel!
   @IBOutlet weak var favoriteButton: UIButton!
-  
-  var media: Media? = nil {
+  var favorites: Favorites?
+  var media: Media? {
     didSet {
       setupView()
     }
   }
-
+  
   
   override func prepareForReuse()  {
     setupView()
@@ -30,13 +30,11 @@ class MediaCell: UITableViewCell {
     nameLabel.text = media?.name
     genreLabel.text = media?.genre
     
-    favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-    
     if let artworkURL = media?.url {
       artworkImageView.downloaded(from: URL(string: artworkURL)!) { (error) in
         if error != nil {
           let placeholderURL = URL(string: "https://p1.hiclipart.com/preview/594/586/554/web0-2ama-gray-music-icon-png-clipart.jpg")
-
+          
           self.artworkImageView.downloaded(from: placeholderURL!) { (error) in
             print("Placeholder image failed to download TOO!!! NOOOOOO!")
           }
@@ -44,5 +42,17 @@ class MediaCell: UITableViewCell {
       }
     }
   }
-
+  
+  
+  
+  @IBAction func didTapFavoriteButton(_ sender: Any) {
+    if self.favorites?.contains(media!) ?? false {
+      self.favorites?.remove(media!)
+      self.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    } else {
+      self.favorites?.add(media!)
+      self.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
+  }
+  
 }
