@@ -16,6 +16,9 @@
 		0FF0B9D5243D4185006506FE /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D4243D4185006506FE /* UIImageView+Networking.swift */; };
 		0FF0B9D6243D4185006506FE /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D4243D4185006506FE /* UIImageView+Networking.swift */; };
 		0FF0B9D7243D4185006506FE /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D4243D4185006506FE /* UIImageView+Networking.swift */; };
+		0FF0B9DA243F93CD006506FE /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D9243F93CD006506FE /* Favorites.swift */; };
+		0FF0B9DB243F93CD006506FE /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D9243F93CD006506FE /* Favorites.swift */; };
+		0FF0B9DC243F93CD006506FE /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0B9D9243F93CD006506FE /* Favorites.swift */; };
 		0FFACA2E243BC53200C40263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFACA2D243BC53200C40263 /* AppDelegate.swift */; };
 		0FFACA30243BC53200C40263 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFACA2F243BC53200C40263 /* SceneDelegate.swift */; };
 		0FFACA35243BC53200C40263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFACA33243BC53200C40263 /* Main.storyboard */; };
@@ -58,6 +61,7 @@
 		0FEC7F10243CF11B00E0989E /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		0FEC7F18243D2CA700E0989E /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		0FF0B9D4243D4185006506FE /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
+		0FF0B9D9243F93CD006506FE /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		0FFACA2A243BC53200C40263 /* Lightweight Tunes Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lightweight Tunes Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFACA2D243BC53200C40263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFACA2F243BC53200C40263 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			children = (
 				0FFACA65243BD63D00C40263 /* Media.swift */,
 				0FEC7F10243CF11B00E0989E /* SearchResults.swift */,
+				0FF0B9D9243F93CD006506FE /* Favorites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				0FFACA5E243BC58000C40263 /* ITunesSearchAPI.swift in Sources */,
 				0FFACA6A243BE19600C40263 /* SearchViewController.swift in Sources */,
 				0FF0B9D5243D4185006506FE /* UIImageView+Networking.swift in Sources */,
+				0FF0B9DA243F93CD006506FE /* Favorites.swift in Sources */,
 				0FEC7F19243D2CA700E0989E /* MediaCell.swift in Sources */,
 				0FFACA66243BD63D00C40263 /* Media.swift in Sources */,
 				0FFACA2E243BC53200C40263 /* AppDelegate.swift in Sources */,
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF0B9DB243F93CD006506FE /* Favorites.swift in Sources */,
 				0FBB5C30243D36A900ABA183 /* MediaCell.swift in Sources */,
 				0FFACA6B243BE19600C40263 /* SearchViewController.swift in Sources */,
 				0FFACA70243BEB4700C40263 /* String+URL.swift in Sources */,
@@ -362,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF0B9DC243F93CD006506FE /* Favorites.swift in Sources */,
 				0FBB5C31243D36AA00ABA183 /* MediaCell.swift in Sources */,
 				0FFACA6C243BE19600C40263 /* SearchViewController.swift in Sources */,
 				0FFACA71243BEB4700C40263 /* String+URL.swift in Sources */,

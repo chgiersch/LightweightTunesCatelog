@@ -18,7 +18,8 @@ public struct Media {
   var kind: String?
 }
 
-extension Media: Codable {
+
+extension Media: Codable, Hashable { // NSCoding
   
   enum CodingKeys: String, CodingKey {
     case id = "trackId"
@@ -42,12 +43,24 @@ extension Media: Codable {
   
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
-    
-    try container.encodeIfPresent(id, forKey: .id)
-    try container.encodeIfPresent(name, forKey: .name)
-    try container.encodeIfPresent(artwork, forKey: .artwork) // I chose artworkUrl60
-    try container.encodeIfPresent(genre, forKey: .genre)
-    try container.encodeIfPresent(url, forKey: .url)
-    try container.encodeIfPresent(kind, forKey: .kind)
+    do {
+      try container.encodeIfPresent(id, forKey: .id)
+      try container.encodeIfPresent(name, forKey: .name)
+      try container.encodeIfPresent(artwork, forKey: .artwork) // I chose artworkUrl60
+      try container.encodeIfPresent(genre, forKey: .genre)
+      try container.encodeIfPresent(url, forKey: .url)
+      try container.encodeIfPresent(kind, forKey: .kind)
+    } catch {
+      print("Unable to Encode Media: \(error)")
+    }
   }
+  
+  public static func == (lhs: Media, rhs: Media) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+  func has(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
 }

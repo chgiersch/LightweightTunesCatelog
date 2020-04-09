@@ -15,35 +15,41 @@ class SearchViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   let searchAPI = ITunesSearchAPI()
-  var resultsArray: [Media] = [] {
-    willSet(newResultsArray) {
-      resultsDictionary = Dictionary(grouping: newResultsArray, by: { ($0.kind ?? "other") })
-      createSections()
+  var resultsDictionary: [String : [Media]] = [:] {
+    willSet {
+      sections = Array<String>(newValue.keys).sorted()
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
     }
   }
-  var resultsDictionary: [String : [Media]] = [:]
-//  var sections: [String] = ["favorites"]
+  var favoritesDictionary: [String : [Media]] = [:]
+  var favorites: Favorites = Favorites()
   var sections: [String] = []
 
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    favoritesDictionary = ["favorites" : Array(favorites.mediaSet)]
+    resultsDictionary = favoritesDictionary
     
-    self.hideKeyboardWhenTappedAround()
+    let favoritesButton = UIButton(type: .custom)
+    favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    favoritesButton.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
+    favoritesButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+
+    let barButton = UIBarButtonItem(customView: favoritesButton)
+    self.navigationItem.rightBarButtonItem = barButton
+    
+    hideKeyboardWhenTappedAround()
   }
   
-  func createSections() {
-    let newSections = Array<String>(resultsDictionary.keys)
-//    sections = sections + newSections.sorted()
-    sections = newSections.sorted()
-  
-    DispatchQueue.main.async {
-      self.tableView.reloadData()
-    }
+  @objc func didTapFavoriteButton() {
+    self.resultsDictionary = ["favorites" : Array(Favorites().mediaSet)]
+    self.searchBar.text = ""
   }
   
 }
-
 
 extension SearchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -59,6 +65,7 @@ extension SearchViewController: UITableViewDelegate {
       }
     }
   }
+  
 }
 
 
@@ -73,6 +80,12 @@ extension SearchViewController: UITableViewDataSource {
     let sectionArray = resultsDictionary[self.sections[indexPath.section]]
     let media = sectionArray?[indexPath.row]
     cell.media = media
+    cell.favorites = self.favorites
+    if favorites.contains(media!) {
+      cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    } else {
+      cell.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
     return cell
   }
   
@@ -86,8 +99,8 @@ extension SearchViewController: UITableViewDataSource {
   
 }
 
+
 extension SearchViewController: UISearchBarDelegate {
-  
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     dismissKeyboard()
     
@@ -95,16 +108,15 @@ extension SearchViewController: UISearchBarDelegate {
       if error != nil {
         print("Search Error: \(error!)")
       } else {
-        /// Organize Search Results
         if let results = searchResults?.results {
-          self.resultsArray = results
-          
+          self.resultsDictionary = Dictionary(grouping: results, by: { ($0.kind ?? "other") })
         }
       }
     }
   }
   
 }
+
 
 extension UIViewController {
   func hideKeyboardWhenTappedAround() {
@@ -118,4 +130,5 @@ extension UIViewController {
   @objc func dismissKeyboard() {
     view.endEditing(true)
   }
+  
 }
