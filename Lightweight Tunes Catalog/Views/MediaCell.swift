@@ -30,11 +30,11 @@ class MediaCell: UITableViewCell {
     nameLabel.text = media?.name
     genreLabel.text = media?.genre
     
-    if let artworkURL = media?.url {
+    if let artworkURL = media?.artwork {
       artworkImageView.downloaded(from: URL(string: artworkURL)!) { (error) in
         if error != nil {
           let placeholderURL = URL(string: "https://p1.hiclipart.com/preview/594/586/554/web0-2ama-gray-music-icon-png-clipart.jpg")
-          
+
           self.artworkImageView.downloaded(from: placeholderURL!) { (error) in
             print("Placeholder image failed to download TOO!!! NOOOOOO!")
           }

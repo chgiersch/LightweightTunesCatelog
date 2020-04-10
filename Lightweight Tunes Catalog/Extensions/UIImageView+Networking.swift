@@ -12,9 +12,7 @@ import UIKit
 extension UIImageView {
   func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit, completion: @escaping (_ error: Error?) -> Void) {
     
-    let testUrl = URL(string: "https://p1.hiclipart.com/preview/594/586/554/web0-2ama-gray-music-icon-png-clipart.jpg")
-
-    URLSession.shared.dataTask(with: testUrl!) { data, response, error in
+    URLSession.shared.dataTask(with: url) { data, response, error in
       guard
         let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
         let data = data, error == nil,

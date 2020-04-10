@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
     resultsDictionary = favoritesDictionary
     
     let favoritesButton = UIButton(type: .custom)
-    favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
     favoritesButton.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
     favoritesButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
 
@@ -45,7 +45,8 @@ class SearchViewController: UIViewController {
   }
   
   @objc func didTapFavoriteButton() {
-    self.resultsDictionary = ["favorites" : Array(Favorites().mediaSet)]
+    let favoritesArray = Array(Favorites().mediaSet)
+    self.resultsDictionary = ["favorites" : favoritesArray]
     self.searchBar.text = ""
   }
   

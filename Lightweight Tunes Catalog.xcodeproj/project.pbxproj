@@ -62,7 +62,7 @@
 		0FEC7F18243D2CA700E0989E /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		0FF0B9D4243D4185006506FE /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
 		0FF0B9D9243F93CD006506FE /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
-		0FFACA2A243BC53200C40263 /* Lightweight Tunes Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lightweight Tunes Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFACA2A243BC53200C40263 /* iSearch Tunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iSearch Tunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFACA2D243BC53200C40263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFACA2F243BC53200C40263 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0FFACA34243BC53200C40263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		0FFACA2B243BC53200C40263 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0FFACA2A243BC53200C40263 /* Lightweight Tunes Catalog.app */,
+				0FFACA2A243BC53200C40263 /* iSearch Tunes.app */,
 				0FFACA40243BC53600C40263 /* Lightweight Tunes CatalogTests.xctest */,
 				0FFACA4B243BC53600C40263 /* Lightweight Tunes CatalogUITests.xctest */,
 			);
@@ -222,7 +222,7 @@
 			);
 			name = "Lightweight Tunes Catalog";
 			productName = "Lightweight Tunes Catalog";
-			productReference = 0FFACA2A243BC53200C40263 /* Lightweight Tunes Catalog.app */;
+			productReference = 0FFACA2A243BC53200C40263 /* iSearch Tunes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0FFACA3F243BC53600C40263 /* Lightweight Tunes CatalogTests */ = {
@@ -542,7 +542,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cognizant.Lightweight-Tunes-Catalog";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iSearch Tunes";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -560,7 +560,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cognizant.Lightweight-Tunes-Catalog";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iSearch Tunes";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

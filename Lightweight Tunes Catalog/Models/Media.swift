@@ -24,7 +24,7 @@ extension Media: Codable, Hashable { // NSCoding
   enum CodingKeys: String, CodingKey {
     case id = "trackId"
     case name = "trackName"
-    case artwork = "artworkUrl30"
+    case artwork = "artworkUrl100"
     case genre = "primaryGenreName"
     case url = "trackViewUrl"
     case kind = "kind"
