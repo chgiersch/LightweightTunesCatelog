@@ -43,21 +43,7 @@ class Favorites {
     mediaSet.remove(media)
     save()
   }
-  
-//  private func getSavedSet() -> Set<Media>? {
-//    if let data = userDefaults.object(forKey: userDefaultsKey) {
-//      do {
-//        let decoder = JSONDecoder()
-//        return try decoder.decode(Set<Media>.self, from: data as! Data)
-//      } catch {
-//        print("Error decoding MediaSet from UserDefaults: \(error)")
-//        return nil
-//      }
-//    } else {
-//      return nil
-//    }
-//  }
-  
+    
   private func save() {
     let defaults = UserDefaults.standard
     do {
