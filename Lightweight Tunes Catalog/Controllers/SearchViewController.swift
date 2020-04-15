@@ -57,13 +57,7 @@ extension SearchViewController: UITableViewDelegate {
     let sectionArray = resultsDictionary[self.sections[indexPath.section]]
     let media = sectionArray?[indexPath.row]
     if let urlString = media?.url, let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
-      print("Opening external link: \(urlString)")
-      UIApplication.shared.open(url, options: [.universalLinksOnly : true]) { (success) in
-        if !success {
-          let safariVC = SFSafariViewController(url: url)
-          self.present(safariVC, animated: true, completion: nil)
-        }
-      }
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
   }
   
